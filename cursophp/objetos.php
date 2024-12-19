@@ -1,5 +1,5 @@
 <?php
-
+/*
 class Login
 {
     private $email;
@@ -58,3 +58,4 @@ $logar = new Login("teste@teste.com", "123456", "Rodrigo Oliveira");
 $logar->Logar();
 echo "<br>";
 echo $logar->getNome();
+*/

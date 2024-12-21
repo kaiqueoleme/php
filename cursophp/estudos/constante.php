@@ -1,5 +1,7 @@
 <?php
 /* Para acessar constantes dentro de uma classe, utiliza o self::$atributoNome no lugar de $this->atributoNome */
+
+/*
 class Pessoa {
     const nome = "Rodrigo";
 
@@ -18,3 +20,4 @@ class Rodrigo extends Pessoa {
 
 $rodrigo = new Rodrigo();
 $rodrigo->exibirNome();
+*/

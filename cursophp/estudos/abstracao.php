@@ -1,4 +1,9 @@
 <?php
+
+/* ABSTRAÇÃO
+    Uma classe ou método abstrato servem como modelo para uma classe em que é extendida. A classe como abstrata permite que defina tanto atributos quanto métodos, diferente de uma interface que aceita apenas métodos.
+    A classe como abstract também impede do desenvolvedor de tentar instanciar essa superclasse.
+*/
 abstract class Banco
 {
     protected $saldo;

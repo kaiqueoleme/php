@@ -3,7 +3,8 @@
 require_once 'vendor/autoload.php';
 
 $produto = new \App\Model\Produto;
-$produto->setNome('Notebook DELL');
-$produto->setDescricao('i5, 4gb');
+$produto->setNome('Microfote AT2020');
+$produto->setDescricao('Microfone condensador');
 
-var_dump($produto);
+$produtoDao = new \App\Model\ProdutoDao;
+$produtoDao->Create($produto);

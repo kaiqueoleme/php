@@ -1,11 +1,13 @@
 <?php
     class Paciente {
+        //Atributos
         private $nome;
         private $rg;
         private $cpf;
         private $end;
         private $prof;
 
+        // Método Construtor
         public function __construct($nome, $rg, $cpf)
         {
             $this->nome = $nome;
@@ -13,6 +15,8 @@
             $this->cpf = $cpf;
         }
 
+
+        //Getters e Setters dos atributos
         public function getNome() {
             return $this->nome;
         }
@@ -55,3 +59,4 @@
 
     }
 ?>
+

@@ -48,13 +48,21 @@
             <i class="fa fa-home w3-xxlarge"></i>
             <p>HOME</p>
         </a>
-        <a href="#dPessoais" class="w3-bar-item w3-button w3-block n w3-cell w3-hover-light-greyw3-hover-text-cyan w3-text-light-grey">
+        <a href="#idPessoais" class="w3-bar-item w3-button w3-block n w3-cell w3-hover-light-greyw3-hover-text-cyan w3-text-light-grey">
             <i class="fa fa-address-book-o w3-xxlarge"></i>
             <p>Dados Pessoais</p>
         </a>
         <a href="#formacao" class="w3-bar-item w3-button w3-block n w3-cell w3-hover-light-greyw3-hover-text-cyan w3-text-light-grey">
             <i class="fa fa-mortar-board w3-xxlarge"></i>
             <p>Formação</p>
+        </a>
+        <a href="#experiencia" class="w3-bar-item w3-button w3-block n w3-cell w3-hover-light-greyw3-hover-text-cyan w3-text-light-grey">
+            <i class="fa-solid fa-id-card w3-xxlarge"></i>
+            <p>Experiencia</p>
+        </a>
+        <a href="#outrasFormacoes" class="w3-bar-item w3-button w3-block n w3-cell w3-hover-light-greyw3-hover-text-cyan w3-text-light-grey">
+            <i class="fa-solid fa-user-graduate w3-xxlarge"></i>
+            <p>Outras</p>
         </a>
     </nav>
     <header class="w3-container w3-padding-32 w3-center " id="home">

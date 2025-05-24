@@ -44,4 +44,12 @@ class UsuarioController
             return false;
         }
     }
+
+    public function gerarLista()
+    {
+        require_once '../Model/Usuario.php';
+        $usuario = new Usuario();
+        return $results = $usuario->listaCadastrados();
+    }
+
 }

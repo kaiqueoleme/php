@@ -88,7 +88,7 @@ class Usuario
             die("Connection failed: " . $stmt->connect_error);
         }
 
-        $sql = "INSERT INTO usuario (nome, cpf, email, senha)VALUES ('" . $this->getNome() . "', '" . $this->getCPF(). "', '" . $this->getEmail() . "','" . $this->getSenha() . "')";
+        $sql = "INSERT INTO usuario (nome, cpf, email, senha)VALUES ('" . $this->getNome() . "', '" . $this->getCPF() . "', '" . $this->getEmail() . "','" . $this->getSenha() . "')";
         if ($stmt->query($sql) === TRUE) {
             $this->id = mysqli_insert_id($stmt);
             $stmt->close();
@@ -104,51 +104,58 @@ class Usuario
         require_once 'ConexaoBD.php';
         $conn = new ConexaoBD();
         $stmt = $conn->conectar();
-        if ($stmt->connect_error) 
-        {
+        if ($stmt->connect_error) {
             die("Connection failed: " . $stmt->connect_error);
         }
 
-        $sql = "SELECT * FROM usuario WHERE cpf = ".$cpf ;
+        $sql = "SELECT * FROM usuario WHERE cpf = " . $cpf;
         $re = $stmt->query($sql);
         $r = $re->fetch_object();
-        if($r != null)
-        {
+        if ($r != null) {
             $this->id = $r->idusuario;
             $this->nome = $r->nome;
             $this->email = $r->email;
             $this->cpf = $r->cpf;
-            $this->dataNascimento = $r->dataNascimento;
+            $this->dataNascimento = $r->dataNasc;
             $this->senha = $r->senha;
             $stmt->close();
             return true;
-        }
-        else
-        {
+        } else {
             $stmt->close();
             return false;
         }
-    } 
+    }
 
     public function atualizarBD()
     {
         require_once 'ConexaoBD.php';
         $conn = new ConexaoBD();
         $stmt = $conn->conectar();
-        if ($stmt->connect_error) 
-        {
+        if ($stmt->connect_error) {
             die("Connection failed: " . $stmt->connect_error);
         }
-        $sql = "UPDATE usuario SET nome = '".$this->nome."', cpf = '". $this->cpf."', dataNascimento = '". $this->dataNascimento."', email='".$this->email."' WHERE idusuario ='". $this->id. "'";
-        if ($stmt->query($sql) === TRUE) 
-        {
+        $sql = "UPDATE usuario SET nome = '" . $this->nome . "', cpf = '" . $this->cpf . "', dataNasc = '" . $this->dataNascimento . "', email='" . $this->email . "' WHERE idusuario ='" . $this->id . "'";
+        if ($stmt->query($sql) === TRUE) {
             $stmt->close();
             return TRUE;
-        }
-        else 
-        {
+        } else {
             $stmt->close();
             return FALSE;
         }
-    } 
+    }
+
+    public function listaCadastrados()
+    {
+        require_once 'ConexaoBD.php';
+        $con = new ConexaoBD();
+        $conn = $con->conectar();
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        $sql = "SELECT idusuario, nome, cpf FROM usuario;";
+        $re = $conn->query($sql);
+        $conn->close();
+        return $re;
+    }
 }
+?>

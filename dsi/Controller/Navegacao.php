@@ -8,9 +8,57 @@ switch ($_POST) {
         include_once "View/login.php";
         break;
 
+
+    //---Login ADM--//
+    case isset($_POST["btnADM"]):
+        include_once '../View/ADMLogin.php';
+        break;
+
     //---Primeiro Acesso--//
     case isset($_POST["btnPrimeiroAcesso"]):
         include_once "../View/primeiroAcesso.php";
+        break;
+
+
+    case isset($_POST["btnOperacaoNRealizada"]):
+        include_once "../View/principal.php";
+        break;
+
+    case isset($_POST["btnCadNRealizado"]):
+        include_once "../View/principal.php";
+        break;
+
+    case isset($_POST["btnCadRealizado"]):
+        include_once "../View/principal.php";
+        break;
+
+    case isset($_POST["btnInfExcluir"]):
+        include_once "../View/principal.php";
+        break;
+
+    case isset($_POST["btnInfInserir"]):
+        include_once "../View/principal.php";
+        break;
+
+
+    case (isset($_POST["btnListarCadastrados"])):
+        include_once '../View/ADMListarCadastrados.php';
+        break;
+
+    case (isset($_POST["btnListarADM"])):
+        include_once '../View/ADMListarAdministradores.php';
+        break;
+
+    case (isset($_POST["btnVoltar"])):
+        include_once '../View/ADMPrincipal.php';
+        break;
+
+    case isset($_POST["btnVisualizar"]):
+        include_once '../View/ADMVisualizarCadastro.php';
+        break;
+
+    case (isset($_POST["btnAtualizacaoCadastro"])):
+        include_once '../View/principal.php';
         break;
 
     //---Cadastrar--//
@@ -29,6 +77,8 @@ switch ($_POST) {
         }
         break;
 
+
+
     //--Atualizar--//
     case isset($_POST["btnAtualizar"]):
         require_once "../Controller/UsuarioController.php";
@@ -40,9 +90,9 @@ switch ($_POST) {
             $_POST["txtEmail"],
             date("Y-m-d", strtotime($_POST["txtData"]))
         )) {
-            include_once "../View/atualizacaoRealizada.php";
+            include_once "../Model/atualizacaoRealizada.php";
         } else {
-            include_once "../View/operacaoNaoRealizada.php";
+            include_once "../Model/operacaoNaoRealizada.php";
         }
         break;
 
@@ -52,11 +102,21 @@ switch ($_POST) {
         if ($uController->login($_POST["txtLogin"], $_POST["txtSenha"])) {
             include_once "../View/principal.php";
         } else {
-            include_once "../View/cadastroNaoRealizado.php";
+            include_once "../Model/cadastroNaoRealizado.php";
         }
         break;
 
-    //--Adicionar Formacao--//
+    case (isset($_POST["btnLoginADM"])):
+        
+        require_once "../Controller/AdministradorController.php";
+        $aController = new AdministradorController();
+        if ($aController->login($_POST['txtLoginADM'], $_POST['txtSenhaADM'])) {
+            include_once '../View/ADMPrincipal.php';
+        } else {
+        }
+        break;
+
+        //--Adicionar Formacao--//
     case isset($_POST["btnAddFormacao"]):
         require_once "../Controller/FormacaoAcadController.php";
         include_once "../Model/Usuario.php";
@@ -74,6 +134,8 @@ switch ($_POST) {
             include_once "../Model/cadastroNaoRealizado.php";
         }
         break;
+
+
 
     //--Excluir Formacao-//
     case isset($_POST["btnExcluirFA"]):

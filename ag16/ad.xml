@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <xmlcep>
+    <cep>01208-000</cep>
+    <logradouro>Rua dos Andradas</logradouro>
+    <complemento>até 99998 - lado par</complemento>
+    <unidade/>
+    <bairro>Santa Efigênia</bairro>
+    <localidade>São Paulo</localidade>
+    <uf>SP</uf>
+    <estado>São Paulo</estado>
+  </xmlcep>
+
